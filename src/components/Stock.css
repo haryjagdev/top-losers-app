@@ -1,0 +1,58 @@
+.displayBox {
+  border-width: 0 0 0.5px 0;
+  border-style: solid;
+  border-color: darkblue;
+  width: 1000px;
+  margin: auto auto;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  /* justify-content: space; */
+}
+
+.smallBox {
+  margin: auto 0;
+  width: 100px;
+  vertical-align: middle;
+}
+
+.mediumBox {
+  margin: auto 0;
+  width: 200px;
+  vertical-align: middle;
+}
+.largeBox {
+  margin: auto 0;
+  /* margin: 0 10px; */
+  width: 300px;
+  vertical-align: middle;
+}
+
+.redText {
+  color: red
+}
+
+.price {
+  /* border: solid black 1px; */
+  margin: auto 0;
+  width: 200px;
+}
+
+
+
+.metrics {
+  border: 1px solid black;
+  margin: 0px 50px;
+  /* height: 50px; */
+}
+
+.heading {
+  font-weight: 900;
+  color: black
+}
+.headingBox {
+  border-width: 0 0 2px 0;
+  border-style: solid;
+  border-color: darkblue;
+}

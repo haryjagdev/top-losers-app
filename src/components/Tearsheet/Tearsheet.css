@@ -1,0 +1,32 @@
+.tearsheet {
+  /* border: 1px solid black; */
+  /* height: 1000px; */
+  width: 1200px;
+  margin: 0 auto;
+  display: flex
+}
+
+.verticalSpace {
+  height: 25px
+}
+
+.leftside {
+  flex: 60%;
+  
+}
+
+.rightside {
+  flex: 40%;
+}
+
+.desc {
+  padding: 0 10px 20px 10px;
+  margin: 0;
+  text-align: left;
+}
+
+
+.sectionheader {
+  text-decoration: underline;
+  margin: 5px;
+}
