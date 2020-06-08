@@ -8,7 +8,7 @@ const CompanyDesc = ({ symbol }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(`http://127.0.0.1:5000/company_desc/${symbol}`)
+      const result = await axios(`http://localhost:5000/company_desc/${symbol}`)
       setDesc(result.data)
     }
     fetchData()
