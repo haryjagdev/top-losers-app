@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { XAxis, Tooltip, YAxis, CartesianGrid, Legend, BarChart, Bar } from 'recharts'
+import { XAxis, Tooltip, YAxis, CartesianGrid, Legend, BarChart, Bar, LineChart, Lin, AreaChart, Area } from 'recharts'
 import { format } from 'date-fns'
 
 const EVgraph = ({ symbol }) => {
@@ -9,20 +9,21 @@ const EVgraph = ({ symbol }) => {
     return `${(decimal * 100).toFixed(fixed)}%`;
   };
 
+  let DataFormater;
+
   const [EV, setEV] = useState([])
   const [stackOffset, setStackOffSet] = useState('expand')
   const [yAxisFormat, setyAxisFormat] = useState(() => toPercent)
 
   useEffect(() => {
     const fetchData = async (symbol) => {
-      const result = await axios(`http://127.0.0.1:5000/historical-ev/${symbol}`)
-      console.log(result.data)
+      const result = await axios(`http://localhost:5000/historical-ev/${symbol}`)
       setEV(result.data)
     }
     fetchData(symbol)
   }, [])
 
-  const DataFormater = (number, numDecimals = 0) => {
+  DataFormater = (number, numDecimals = 0) => {
 
     if (Math.abs(number) > 1000000000) {
       return (number / 1000000000).toFixed(numDecimals).toString() + 'B';
@@ -59,17 +60,18 @@ const EVgraph = ({ symbol }) => {
           <input type="radio" id="percent" defaultChecked readOnly /> Percent
         </label>
       </div>
-      <BarChart width={500} height={250} data={EV}
-        margin={{ top: 10, right: 30, left: 0, bottom: 0 }} stackOffset={stackOffset}>
+      <AreaChart width={500} height={250} data={EV} stackOffset={stackOffset} margin={{ top: 10, right: 30, left: 0, bottom: 0 }} >
+        {/* <AreaChart width={500} height={250} data={EV} margin={{ top: 10, right: 30, left: 0, bottom: 0 }} > */}
         <XAxis dataKey="date" tickFormatter={dateStr => format(new Date(dateStr), 'MMM-yyyy')}
           minTickGap={40} allowDuplicatedCategory={false} />
         <YAxis type="number" tickFormatter={yAxisFormat} />
+        {/* <YAxis /> */}
         <CartesianGrid strokeDasharray="3 3" />
         <Legend />
         <Tooltip />
-        <Bar type='monotone' name='Market Cap' dataKey='mkt_cap' stackId="1" stroke='#8884d8' fill='#8884d8' />
-        <Bar type='monotone' name='Net Debt' dataKey='net_debt' stackId="1" stroke='#82ca9d' fill='#82ca9d' />
-      </BarChart>
+        <Area type='monotone' name='Market Cap' dataKey='mkt_cap' stackId="1" stroke='#8884d8' fill='#8884d8' />
+        <Area type='monotone' name='Net Debt' dataKey='net_debt' stackId="1" stroke='#82ca9d' fill='#82ca9d' />
+      </AreaChart>
     </div>
   )
 }

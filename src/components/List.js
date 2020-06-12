@@ -14,10 +14,7 @@ const List = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log('Request sent -> localhost/top-losers')
-
       const result = await axios("http://localhost:5000/top-losers");
-      console.log(result.data.data)
       setTopLosers(result.data.data)
       setDate(result.data.date)
       setDispaly(result.data.data.map((stock, idx) => (

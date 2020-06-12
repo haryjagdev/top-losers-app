@@ -12,22 +12,12 @@ import CapitalStructure from './sections/CapitalStructure'
 
 
 const Tearsheet = ({ symbol, companyName }) => {
-  const [desc, setDesc] = useState('')
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios(`http://127.0.0.1:5000/company_desc/${symbol}`)
-      setDesc(result.data)
-    }
-    fetchData()
-  }, [])
-
 
   return (
     <div className='tearsheet'>
 
       <div className='leftside'>
-        <h4 className='sectionheader'>{companyName}</h4>
+        {/* <h4 className='sectionheader'>{companyName}</h4> */}
         <CompanyDesc symbol={symbol} />
         <CapitalStructure symbol={symbol} />
 
