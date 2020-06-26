@@ -1,0 +1,23 @@
+.padding10 {
+  padding: 10px 10px 0px 10px;
+  margin: 0;
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+
+}
+.lessPadding {
+  padding: 2px 10px 2px 10px;
+  margin: 0;
+}
+
+.alignLeft {
+  text-align: left;
+}
+
+.blackText {
+  color: black;
+}
+

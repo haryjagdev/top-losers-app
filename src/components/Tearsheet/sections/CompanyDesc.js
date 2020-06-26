@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import "../Tearsheet.css"
 import axios from 'axios';
-import ExpandLess from "@material-ui/icons/ExpandLess";
+import './sections.css'
+// import ExpandLess from "@material-ui/icons/ExpandLess";
 
 const CompanyDesc = ({ symbol }) => {
   const [desc, setDesc] = useState('')
@@ -21,10 +22,11 @@ const CompanyDesc = ({ symbol }) => {
 
   return (
     <div onClick={clickHandler}>
+      <p className='padding10 center'><strong>Company Overview</strong></p>
       {!expand ?
-        <p className='desc'>{desc.slice(0, 250) + (desc.length < 250 ? '' : "...")}</p>
+        <p className='lessPadding alignLeft' style={desc.length > 250 ? { cursor: 'pointer' } : null}>{desc.slice(0, 600) + (desc.length > 250 ? '...' : '')}</p>
         :
-        <p className='desc'>{desc}</p>
+        <p className='lessPadding alignLeft' style={desc.length > 250 ? { cursor: 'pointer' } : null}>{desc}</p>
       }
     </div>
   )

@@ -4,34 +4,52 @@ import './Tearsheet.css'
 
 import CompanyDesc from "./sections/CompanyDesc"
 import EVgraph from './sections/Graphs/EVgraph'
-// import PriceGraph from './sections/PriceGraph'
 import GraphPrice from './sections/Graphs/GraphPrice'
 import FinancialStatement from './sections/FinancialStatement/FinancialStatement'
 import CapitalStructure from './sections/CapitalStructure'
-// import Multiples from './sections/Multiples'
+import News from './sections/News'
 
-
-const Tearsheet = ({ symbol, companyName }) => {
+const Tearsheet = ({ symbol, companyName, date }) => {
 
   return (
     <div className='tearsheet'>
 
-      <div className='leftside'>
-        {/* <h4 className='sectionheader'>{companyName}</h4> */}
-        <CompanyDesc symbol={symbol} />
-        <CapitalStructure symbol={symbol} />
+      {/* <div className='leftside'> */}
+      {/* <CompanyDesc symbol={symbol} /> */}
+      {/* <CapitalStructure symbol={symbol} /> */}
+      {/* <FinancialStatement symbol={symbol} /> */}
 
-        <FinancialStatement symbol={symbol} />
-
-        {/* <PL symbol={symbol} />
-        <BS symbol={symbol} /> */}
-      </div>
-
+      {/* </div>
       <div className='rightside'>
+        <News symbol={symbol} date={date} />
         <div className='verticalSpace'></div>
         <GraphPrice symbol={symbol} />
         <div className='verticalSpace'></div>
         <EVgraph symbol={symbol} />
+      </div> */}
+
+      <div className='row'>
+        <div className='column leftside'>
+          <CompanyDesc symbol={symbol} />
+        </div>
+        <div className='column rightside'>
+          <News symbol={symbol} date={date} />
+
+        </div>
+      </div>
+
+      <div className='seperate'></div>
+
+      <div className='row'>
+        <div className='column leftside'>
+          <FinancialStatement symbol={symbol} />
+        </div>
+        <div className='column rightside'>
+          {/* <div className='verticalSpace'></div> */}
+          <GraphPrice symbol={symbol} />
+          {/* <div className='verticalSpace'></div> */}
+          <EVgraph symbol={symbol} />
+        </div>
       </div>
     </div>
   )

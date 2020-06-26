@@ -2,7 +2,7 @@ import React from 'react'
 import SortIcon from '@material-ui/icons/Sort';
 import "./Stock.css"
 
-const Header = ({ sortEquity, equityAscOrder, sortEV, EVascOrder, filterEquity }) => {
+const Header = ({ sortEquity, sortEV, filterEquity }) => {
 
   return (
     <div>
@@ -11,13 +11,15 @@ const Header = ({ sortEquity, equityAscOrder, sortEV, EVascOrder, filterEquity }
         <p className='smallBox heading'>Ticker</p>
         <p className="price heading">Close Price</p>
         <p
-          className="largeBox heading"
+          className="mediumBox heading"
           id='equityChg'
           onClick={sortEquity}
           style={{ cursor: 'pointer' }}
         >
-          % Chg (Equity) <SortIcon id='equityChg' color={filterEquity ? '' : 'disabled'} />
+          % Chg <SortIcon id='equityChg' color={filterEquity ? '' : 'disabled'} />
         </p>
+
+        <p className="mediumBox heading">Market Cap</p>
         <p
           className="mediumBox heading"
           id='EVchg'
@@ -26,6 +28,9 @@ const Header = ({ sortEquity, equityAscOrder, sortEV, EVascOrder, filterEquity }
         >
           % Chg (EV) <SortIcon id='EVchg' color={filterEquity ? 'disabled' : ''} />
         </p>
+
+        <p className="smallBox heading">EV</p>
+
         <p className='largeBox heading'>Sector</p>
         <p className='largeBox heading'>
           Industry
